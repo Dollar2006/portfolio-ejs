@@ -1,0 +1,40 @@
+[
+  
+  {
+    "id": 1,
+    "tipo": "tecnica",
+    "categoria": "Frontend",
+    "habilidades": ["React", "Next.js", "TypeScript", "Tailwind CSS", "Vue.js"],
+    "descricao": "" 
+  },
+  {
+    "id": 2,
+    "tipo": "tecnica",
+    "categoria": "Backend",
+    "habilidades": ["Node.js", "Python", "Java", "PostgreSQL", "MongoDB"],
+    "descricao": ""
+  },
+  
+  
+  {
+    "id": 3,
+    "tipo": "interpessoal",
+    "nome": "Trabalho em Equipe",
+    "descricao": "Colaboração efetiva com equipes multidisciplinares e comunicação clara.",
+    "icone": "icone_usuario_grupo"
+  },
+  {
+    "id": 4,
+    "tipo": "interpessoal",
+    "nome": "Resolução de Problemas",
+    "descricao": "Pensamento analítico para identificar desafios e criar soluções criativas.",
+    "icone": "icone_lampada"
+  },
+  {
+    "id": 5,
+    "tipo": "interpessoal",
+    "nome": "Foco em Resultados",
+    "descricao": "Comprometimento com entregas de qualidade dentro dos prazos estabelecidos.",
+    "icone": "icone_alvo"
+  }
+]

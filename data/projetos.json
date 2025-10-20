@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "nome": "E-commerce Platform",
+    "descricao": "Plataforma completa com painel administrativo e integração de pagamentos.",
+    "tecnologias": ["React", "Node.js", "PostgreSQL"],
+    "link": "https://link-para-o-projeto-ecommerce.com",
+    "link_repositorio": "https://github.com/seu-usuario/ecommerce"
+  },
+  {
+    "id": 2,
+    "nome": "Task Manager Pro",
+    "descricao": "App de gerenciamento com colaboração em tempo real.",
+    "tecnologias": ["React Native", "Firebase", "Redux"],
+    "link": "https://link-para-o-projeto-taskmanager.com",
+    "link_repositorio": "https://github.com/seu-usuario/taskmanager"
+  }
+]

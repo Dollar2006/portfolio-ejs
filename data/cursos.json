@@ -1,0 +1,30 @@
+
+[
+{
+  "id": 1,
+  "tipo": "academico",
+  "nome": "Analise e desenvolvimento de Sistemas",
+  "instituicao": "Fatec Jessen Vidal - São José dos Campos",
+  "periodo": "2024 -",
+  "descricao": "Formação sólida em fundamentos de computação, estruturas de dados, algoritmos, engenharia de software e desenvolvimento de sistemas.",
+  "tags": []
+},
+{
+    "id": 2,
+    "tipo": "complementar",
+    "nome": "AWS Certified Solutions Architect",
+    "instituicao": "Amazon Web Services",
+    "periodo": "2024",
+    "descricao": "Certificação Profissional",
+    "tags": ["AWS", "Cloud Computing", "DevOps", "Architecture"]
+},
+{
+    "id": 3,
+    "tipo": "complementar",
+    "nome": "Curso JavaScript Completo",
+    "instituicao": "Origamid",
+    "periodo": "2023",
+    "descricao": "Curso prático focado em ES6+, assincronicidade e manipulação de DOM.",
+    "tags": ["JavaScript", "FrontEnd", "ES6"]
+}
+]

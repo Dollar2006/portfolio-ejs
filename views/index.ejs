@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <title>Meu Portfólio</title>
+</head>
+<body>
+    <nav>
+        <h1>LBM</h1>
+        <ul>
+            <li>Inicio</li>
+            <li>Formação</li>
+            <li>Certificações</li>
+            <li>Projetos</li>
+            <li>Competências</li>
+            <li>Redes</li>
+        </ul>
+    </nav>
+    <section id="apresentacao">
+    <div class="apresentacao-container">
+
+        <div class="apresentacao-info">
+            
+            <div class="badge-cargo"><%= dadosBasicos.cargo %></div>
+
+            <h1 class="nome-completo"><%= dadosBasicos.nomeCompleto %></h1>
+            
+            <p class="biografia-texto"><%= dadosBasicos.biografia %></p>
+            
+            <div class="contato-detalhes">
+                
+                <div class="contato-item">
+                    <span class="icon-mail">📧</span>
+                    <div>
+                        <small>Email</small>
+                        <p class="contato-valor"><%= dadosBasicos.email %></p>
+                    </div>
+                </div>
+                
+                <div class="contato-item">
+                    <span class="icon-phone">📞</span>
+                    <div>
+                        <small>Telefone</small>
+                        <p class="contato-valor"><%= dadosBasicos.telefone %></p>
+                    </div>
+                </div>
+                
+                <div class="contato-item">
+                    <span class="icon-location">📍</span>
+                    <div>
+                        <small>Localização</small>
+                        <p class="contato-valor"><%= dadosBasicos.localizacao %></p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="apresentacao-foto-wrapper">
+            <img 
+                src="<%= dadosBasicos.foto_url %>" 
+                alt="Foto de perfil de <%= dadosBasicos.nomeCompleto %>" 
+                class="perfil-foto"
+            />
+        </div>
+
+    </div>
+</section>
+    <section id="formacao-academica">
+    <div class="section-header">
+        <span class="header-icon">🎓</span> 
+        <h2 class="section-title">Formação Acadêmica</h2>
+        <p class="section-subtitle">Minha trajetória educacional</p>
+    </div>
+    
+    <div class="formacao-list-container">
+        <% cursos.filter(c => c.tipo === 'academico').forEach(item => { %>
+            
+            <div class="card card-formacao-academica">
+                
+                <div class="file-name">
+                    <span class="dot-red"></span>
+                    <span class="dot-green"></span>
+                    <span class="dot-cyan"></span>
+                    <%= item.arquivo_referencia %> </div>
+
+                <div class="card-body">
+                    
+                    <h4 class="card-title"><%= item.nome %></h4>
+                    
+                    <p class="card-subtitle instituicao"><%= item.instituicao %></p>
+                    
+                    <p class="card-date">📅 <%= item.periodo %></p>
+                    
+                    <p class="card-description"><%= item.descricao %></p>
+                </div>
+
+                <span class="card-badge">
+                    <svg></svg>
+                </span>
+            </div>
+        <% }) %>
+    </div>
+    </section>
+    <section id="certificacoes-complementares">
+    
+    <div class="section-header">
+        <span class="header-icon">✅</span>
+        <h2 class="section-title">Cursos Complementares e Certificações</h2>
+        <p class="section-subtitle">Qualificações e aprendizado contínuo</p>
+    </div>
+
+    <div class="certificacao-list-container">
+        <% cursos.filter(c => c.tipo === 'complementar').forEach(item => { %>
+            
+            <div class="card card-certificacao">
+                
+                <div class="card-header">
+                    <span class="icon-status">✅</span> 
+                    
+                    <h4 class="card-title"><%= item.nome %></h4>
+                    
+                    <% if (item.link) { %>
+                        <a href="<%= item.link %>" target="_blank" class="link-validacao">↗️</a>
+                    <% } %>
+                </div>
+
+                <p class="card-subtitle instituicao"><%= item.instituicao %></p>
+                <p class="card-date">
+                    <%= item.periodo %> • <%= item.descricao %>
+                </p>
+                
+                <div class="card-tags">
+                    <% item.tags.forEach(tag => { %>
+                        <span class="tag-item"><%= tag %></span>
+                    <% }) %>
+                </div>
+            </div>
+        <% }) %>
+    </div>
+    </section>
+    <section id="projetos-desenvolvidos">
+    <div class="section-header">
+        <h2 class="section-title">Projetos</h2>
+        <p class="section-subtitle">Alguns trabalhos que desenvolvi</p>
+    </div>
+
+    <div class="projetos-list-container">
+        
+        <% projetos.forEach(item => { %>
+            
+            <div class="card card-projeto">
+                
+                <div class="card-body">
+                    <h4 class="card-title"><%= item.nome %></h4>
+                    
+                    <p class="card-description"><%= item.descricao %></p>
+                    
+                    <div class="card-tags">
+                        <% item.tecnologias.forEach(tag => { %>
+                            <span class="tag-item tag-tech"><%= tag %></span>
+                        <% }) %>
+                    </div>
+                    
+                    <p class="card-link">
+                        <% if (item.link) { %>
+                            <a href="<%= item.link %>" target="_blank">Ver projeto ↗️</a>
+                        <% } else { %>
+                            <% if (item.link_repositorio) { %>
+                                <a href="<%= item.link_repositorio %>" target="_blank">Ver código ↗️</a>
+                            <% } %>
+                        <% } %>
+                    </p>
+                </div>
+            </div>
+            
+        <% }) %>
+
+    </div>
+</section>
+<section id="competencias">
+    <div class="section-header">
+        <span class="header-icon">{'<'}</span> 
+        <h2 class="section-title">Competências</h2>
+        <p class="section-subtitle">Habilidades técnicas e interpessoais</p>
+    </div>
+
+    <div class="competencias-tecnicas">
+        <h3 class="subsection-title">♦ Habilidades Técnicas</h3>
+        
+        <div class="tecnicas-list-container">
+            <% competencias.filter(c => c.tipo === 'tecnica').forEach(categoria => { %>
+                <div class="card card-competencia-tecnica">
+                    <h4 class="card-title"><%= categoria.categoria %></h4>
+                    <div class="tag-group">
+                        <% categoria.habilidades.forEach(habilidade => { %>
+                            <span class="tag-item tag-tech"><%= habilidade %></span>
+                        <% }) %>
+                    </div>
+                </div>
+            <% }) %>
+        </div>
+    </div>
+
+    <div class="competencias-interpessoais">
+        <h3 class="subsection-title">♦ Competências Interpessoais</h3>
+        
+        <div class="interpessoais-list-container">
+            <% competencias.filter(c => c.tipo === 'interpessoal').forEach(softskill => { %>
+                <div class="card card-competencia-soft">
+                    <div class="icon-wrapper">
+                        <span class="icon-soft icon-<%= softskill.icone %>"></span> 
+                    </div>
+                    <h4 class="card-title"><%= softskill.nome %></h4>
+                    <p class="card-description"><%= softskill.descricao %></p>
+                </div>
+            <% }) %>
+        </div>
+    </div>
+</section>
+<section id="redes-profissionais">
+    <div class="section-header">
+        <span class="header-icon">🔗</span> 
+        <h2 class="section-title">Redes Profissionais</h2>
+        <p class="section-subtitle">Conecte-se comigo nas plataformas</p>
+    </div>
+
+    <div class="redes-list-container">
+        
+        <a href="<%= redesSociais.linkedin_url %>" target="_blank" class="card card-rede card-linkedin">
+            <span class="icon-plataforma">in</span>
+            <div class="link-info">
+                <h4 class="card-title">LinkedIn</h4>
+                <p class="card-username"><%= redesSociais.linkedin_username %></p>
+            </div>
+            <span class="icon-external">↗️</span>
+        </a>
+
+        <a href="<%= redesSociais.github_url %>" target="_blank" class="card card-rede card-github">
+            <span class="icon-plataforma">🖰</span>
+            <div class="link-info">
+                <h4 class="card-title">GitHub</h4>
+                <p class="card-username"><%= redesSociais.github_username %></p>
+            </div>
+            <span class="icon-external">↗️</span>
+        </a>
+    </div>
+</section>
+</body>
+</html>
