@@ -3,7 +3,11 @@
     "id": 1,
     "nome": "E-commerce Platform",
     "descricao": "Plataforma completa com painel administrativo e integração de pagamentos.",
-    "tecnologias": ["React", "Node.js", "PostgreSQL"],
+    "tecnologias": [
+      "React",
+      "Node.js",
+      "PostgreSQL"
+    ],
     "link": "https://link-para-o-projeto-ecommerce.com",
     "link_repositorio": "https://github.com/seu-usuario/ecommerce"
   },
@@ -11,8 +15,24 @@
     "id": 2,
     "nome": "Task Manager Pro",
     "descricao": "App de gerenciamento com colaboração em tempo real.",
-    "tecnologias": ["React Native", "Firebase", "Redux"],
+    "tecnologias": [
+      "React Native",
+      "Firebase",
+      "Redux"
+    ],
     "link": "https://link-para-o-projeto-taskmanager.com",
     "link_repositorio": "https://github.com/seu-usuario/taskmanager"
+  },
+  {
+    "nome": "Sistema de Agendamento Online",
+    "descricao": "Aplicação web para clínicas médicas gerenciarem agendamentos, histórico de pacientes e disponibilidade de médicos.",
+    "tecnologias": [
+      "React Native",
+      "Firebase",
+      "Stripe API"
+    ],
+    "link": "https://agendamentos-demo.com.br",
+    "link_repositorio": "https://github.com/seuusuario/agendamento-repo",
+    "id": 3
   }
 ]

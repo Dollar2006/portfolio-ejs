@@ -1,0 +1,551 @@
+/*
+  ==================================================
+  1. VARIÁVEIS DE CORES E RESET BÁSICO
+  ==================================================
+*/
+:root {
+    /* Cores Principais */
+    --color-bg-dark: #0f0a1f; /* Fundo principal muito escuro */
+    --color-text-light: #f0f0f0; /* Texto principal claro */
+    --color-text-secondary: #aaaaaa; /* Texto secundário */
+    --color-card-bg: #1a1133; /* Fundo dos cartões */
+    
+    /* Cores Neon */
+    --neon-pink: #ff3864;
+    --neon-cyan: #39ffea;
+    --neon-purple: #ae49ff;
+    --neon-green: #49ff8c;
+
+    /* Sombras Neon (Para bordas e textos) */
+    --shadow-pink: 0 0 10px rgba(255, 56, 100, 0.7), 0 0 20px rgba(255, 56, 100, 0.5);
+    --shadow-cyan: 0 0 10px rgba(57, 255, 234, 0.7), 0 0 20px rgba(57, 255, 234, 0.5);
+    --shadow-purple: 0 0 10px rgba(174, 73, 255, 0.7), 0 0 20px rgba(174, 73, 255, 0.5);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--color-bg-dark);
+    color: var(--color-text-light);
+    font-family: 'Arial', sans-serif;
+    padding: 0;
+}
+
+h1, h2, h3, h4 {
+    color: var(--color-text-light);
+    font-weight: 700;
+}
+
+/*
+  ==================================================
+  2. NAVEGAÇÃO E HEADER (Menu Fixo)
+  ==================================================
+*/
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5%;
+    background-color: var(--color-bg-dark);
+    border-bottom: 1px solid var(--color-card-bg); /* Linha divisória */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+nav h1 {
+    color: var(--neon-cyan);
+    letter-spacing: 2px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 25px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+nav ul li:hover {
+    color: var(--neon-pink);
+    text-shadow: 0 0 5px var(--neon-pink);
+}
+
+/*
+  ==================================================
+  3. ESTRUTURA GERAL DA SEÇÃO E TÍTULOS
+  ==================================================
+*/
+section {
+    padding: 80px 5%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.section-header {
+    margin-bottom: 50px;
+}
+
+.section-title {
+    font-size: 48px;
+    margin-bottom: 10px;
+}
+
+.section-subtitle {
+    color: var(--color-text-secondary);
+    font-size: 18px;
+}
+
+.header-icon {
+    font-size: 24px;
+    margin-right: 10px;
+    color: var(--neon-pink);
+}
+
+/*
+  ==================================================
+  4. SEÇÃO APRESENTAÇÃO (Bloco Lado a Lado)
+  ==================================================
+*/
+#apresentacao {
+    min-height: 80vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5)), url('/img/grid.png');
+    background-size: cover;
+    background-position: center;
+    padding-top: 100px;
+}
+
+.apresentacao-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 50px;
+}
+
+.apresentacao-info {
+    max-width: 600px;
+}
+
+.badge-cargo {
+    display: inline-block;
+    background: var(--neon-purple);
+    color: var(--color-bg-dark);
+    padding: 5px 15px;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.nome-completo {
+    font-size: 72px;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    color: var(--neon-cyan);
+}
+
+.biografia-texto {
+    font-size: 18px;
+    line-height: 1.6;
+    color: var(--color-text-secondary);
+    margin-bottom: 30px;
+}
+
+/* Detalhes de Contato */
+.contato-detalhes {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.contato-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.contato-item small {
+    color: var(--color-text-secondary);
+    font-size: 12px;
+}
+
+.contato-valor {
+    margin: 0;
+    font-weight: bold;
+}
+
+.icon-mail, .icon-phone, .icon-location {
+    font-size: 20px;
+}
+
+/* Foto */
+.apresentacao-foto-wrapper {
+    position: relative;
+    width: 350px;
+    height: 350px;
+    border-radius: 20px;
+    /* Borda Neon na Foto */
+    box-shadow: 0 0 10px var(--neon-cyan), 0 0 20px var(--neon-cyan), 0 0 30px var(--neon-pink);
+    overflow: hidden;
+}
+
+.perfil-foto {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 20px;
+}
+
+/*
+  ==================================================
+  5. ESTILO BASE DOS CARDS (O Bloco com Borda Neon)
+  ==================================================
+*/
+.card {
+    background-color: var(--color-card-bg);
+    padding: 30px;
+    border-radius: 15px;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+}
+
+/* Efeito de Borda Neon (As cores são aplicadas por classe) */
+.card-formacao-academica {
+    /* Exemplo da cor rosa/pink da formação */
+    border: 1px solid var(--neon-pink);
+    box-shadow: var(--shadow-pink);
+}
+
+.card-formacao-academica:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 15px var(--neon-pink), 0 0 30px var(--neon-pink);
+}
+
+/*
+  ==================================================
+  6. SEÇÃO FORMAÇÃO ACADÊMICA
+  ==================================================
+*/
+.formacao-list-container {
+    display: flex;
+    flex-direction: column; /* Cartões empilhados (design da imagem) */
+    gap: 30px;
+}
+
+.card-formacao-academica {
+    padding: 20px 30px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.file-name {
+    color: var(--color-text-secondary);
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-bottom: 15px;
+}
+
+.dot-red, .dot-green, .dot-cyan {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    margin-right: 3px;
+}
+
+.dot-red { background-color: var(--neon-pink); }
+.dot-green { background-color: var(--neon-green); }
+.dot-cyan { background-color: var(--neon-cyan); }
+
+.card-formacao-academica .card-title {
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+
+.card-subtitle.instituicao {
+    color: var(--neon-pink);
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.card-date {
+    color: var(--color-text-secondary);
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+.card-description {
+    color: var(--color-text-light);
+}
+
+.card-badge {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    width: 40px;
+    height: 40px;
+    /* Círculo neon para o ícone */
+    border-radius: 50%;
+    border: 2px solid var(--neon-pink);
+    box-shadow: 0 0 5px var(--neon-pink);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/*
+  ==================================================
+  7. SEÇÃO CURSOS E CERTIFICAÇÕES
+  ==================================================
+*/
+.certificacao-list-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 30px;
+}
+
+.card-certificacao {
+    /* Define cores para cartões de certificação, o pink e o ciano são mais comuns */
+    border: 1px solid var(--neon-cyan);
+    box-shadow: var(--shadow-cyan);
+    padding: 30px;
+}
+
+.card-certificacao:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 15px var(--neon-cyan), 0 0 30px var(--neon-cyan);
+}
+
+.card-certificacao .card-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 10px;
+}
+
+.icon-status {
+    font-size: 24px;
+    color: var(--neon-cyan); /* Ícone de checkmark */
+}
+
+.card-certificacao .card-title {
+    flex-grow: 1;
+    font-size: 20px;
+}
+
+.card-certificacao .card-subtitle.instituicao {
+    color: var(--neon-pink); /* Instituição em outra cor */
+    font-weight: normal;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.link-validacao {
+    color: var(--neon-cyan);
+    font-size: 20px;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+/*
+  ==================================================
+  8. SEÇÃO PROJETOS
+  ==================================================
+*/
+.projetos-list-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 30px;
+}
+
+.card-projeto:nth-child(odd) {
+    /* E-commerce Platform - Borda Pink */
+    border: 1px solid var(--neon-pink);
+    box-shadow: var(--shadow-pink);
+}
+
+.card-projeto:nth-child(even) {
+    /* Task Manager Pro - Borda Cyan */
+    border: 1px solid var(--neon-cyan);
+    box-shadow: var(--shadow-cyan);
+}
+
+.card-projeto .card-title {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.card-projeto .card-description {
+    color: var(--color-text-secondary);
+    margin-bottom: 20px;
+}
+
+.card-link a {
+    color: var(--neon-pink);
+    text-decoration: none;
+    font-weight: bold;
+    transition: text-shadow 0.3s;
+}
+
+.card-link a:hover {
+    text-shadow: 0 0 5px var(--neon-pink);
+}
+
+/*
+  ==================================================
+  9. SEÇÃO COMPETÊNCIAS
+  ==================================================
+*/
+.subsection-title {
+    color: var(--neon-cyan);
+    font-size: 28px;
+    margin: 40px 0 20px 0;
+}
+
+/* Habilidades Técnicas (Frontend, Backend) */
+.tecnicas-list-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.card-competencia-tecnica:nth-child(1) {
+    /* Frontend - Pink */
+    border: 1px solid var(--neon-pink);
+    box-shadow: var(--shadow-pink);
+}
+
+.card-competencia-tecnica:nth-child(2) {
+    /* Backend - Cyan */
+    border: 1px solid var(--neon-cyan);
+    box-shadow: var(--shadow-cyan);
+}
+
+/* Competências Interpessoais (Soft Skills) */
+.interpessoais-list-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.card-competencia-soft:nth-child(3n + 1) {
+    border: 1px solid var(--neon-pink);
+    box-shadow: var(--shadow-pink);
+}
+.card-competencia-soft:nth-child(3n + 2) {
+    border: 1px solid var(--neon-cyan);
+    box-shadow: var(--shadow-cyan);
+}
+.card-competencia-soft:nth-child(3n + 3) {
+    border: 1px solid var(--neon-purple);
+    box-shadow: var(--shadow-purple);
+}
+
+.icon-wrapper {
+    margin-bottom: 15px;
+}
+
+.icon-soft {
+    /* Estilos para o ícone da soft skill */
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.05);
+    /* Adicione mais estilos baseados nas suas classes de ícone (ex: icon-lampada) */
+}
+
+/*
+  ==================================================
+  10. TAGS DE TECNOLOGIA E HABILIDADES
+  ==================================================
+*/
+.card-tags, .tag-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.tag-item {
+    padding: 5px 12px;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 500;
+    /* Estilo padrão de tag, você pode personalizar por cor */
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/*
+  ==================================================
+  11. SEÇÃO REDES PROFISSIONAIS
+  ==================================================
+*/
+.redes-list-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.card-rede {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    padding: 25px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Cores específicas para as redes */
+.card-linkedin {
+    border: 1px solid var(--neon-pink);
+    box-shadow: var(--shadow-pink);
+}
+.card-github {
+    border: 1px solid var(--neon-cyan);
+    box-shadow: var(--shadow-cyan);
+}
+.card-lattes {
+    border: 1px solid var(--neon-purple);
+    box-shadow: var(--shadow-purple);
+}
+
+.icon-plataforma {
+    font-size: 32px;
+    color: var(--neon-cyan);
+}
+
+.link-info {
+    flex-grow: 1;
+}
+
+.card-rede .card-title {
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.card-username {
+    color: var(--color-text-secondary);
+    font-size: 14px;
+}
+
+.icon-external {
+    font-size: 20px;
+    color: var(--color-text-secondary);
+}
